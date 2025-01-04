@@ -9,10 +9,10 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server.ts"
+      "source": "/api/(.*)",
+      "destination": "/server.ts"
     }
   ],
   "headers": [
