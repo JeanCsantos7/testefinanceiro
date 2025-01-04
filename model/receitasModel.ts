@@ -8,7 +8,7 @@ interface Dados {
 
 class ReceitasModel {
     // Cria uma nova entrada de receita
-    async createEntradas(bodyDetail: Dados) {
+    async createReceitas(bodyDetail: Dados) {
         const sql =
             'INSERT INTO receitas (descricao, valor, categoria) VALUES(?, ?, ?)';
         try {
@@ -17,7 +17,7 @@ class ReceitasModel {
                 bodyDetail.valor,
                 bodyDetail.categoria,
             ]);
-            return JSON.parse(JSON.stringify(result)); // Converte para JSON se necessário
+            return result;
         } catch (error) {
             throw error;
         }
@@ -28,7 +28,7 @@ class ReceitasModel {
         const sql = 'SELECT * FROM receitas';
         try {
             const [result] = await pool.execute(sql);
-            return JSON.parse(JSON.stringify(result)); // Converte para JSON se necessário
+            return result;
         } catch (error) {
             throw error;
         }
@@ -45,18 +45,18 @@ class ReceitasModel {
                 bodyDetail.categoria,
                 idParams,
             ]);
-            return JSON.parse(JSON.stringify(result)); // Converte para JSON se necessário
+            return result;
         } catch (error) {
             throw error;
         }
     }
 
     // Deleta uma receita
-    async deleteReceitas(idParams: number) {
+    async deleteReceitas(idParam: number) {
         const sql = 'DELETE FROM receitas WHERE id=?';
         try {
-            const [result] = await pool.execute(sql, [idParams]);
-            return JSON.parse(JSON.stringify(result)); // Converte para JSON se necessário
+            const [result] = await pool.execute(sql, [idParam]);
+            return result;
         } catch (error) {
             throw error;
         }
@@ -67,7 +67,7 @@ class ReceitasModel {
         const sql = 'SELECT SUM(valor) AS total FROM receitas';
         try {
             const [result] = await pool.execute(sql);
-            return JSON.parse(JSON.stringify(result)); // Converte para JSON se necessário
+            return result;
         } catch (error) {
             throw error;
         }
