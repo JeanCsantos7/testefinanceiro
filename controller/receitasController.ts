@@ -6,7 +6,7 @@ class ControllerReceitas {
         try {
             const bodyDetail = req.body;
             const createEntradas =
-                await ReceitasModel.createEntradas(bodyDetail);
+                await ReceitasModel.createReceitas(bodyDetail);
             res.json(createEntradas);
         } catch (error) {
             console.error(error);
