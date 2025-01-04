@@ -9,12 +9,6 @@
             }
         }
     ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/server.ts"
-        }
-    ],
     "headers": [
         {
             "source": "/(.*)",
@@ -34,6 +28,10 @@
                 }
             ]
         }
-    ]
-    
+    ],
+    "functions": {
+        "api/**/*.js": {
+            "maxDuration": 50
+        }
+    }
 }
