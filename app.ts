@@ -7,9 +7,7 @@ const app = express();
 app.use(express.json());
 
 
-app.use(cors({
-  origin: 'https://controlefinancas7.netlify.app'
-}));
+app.use(cors());
 
 
 
